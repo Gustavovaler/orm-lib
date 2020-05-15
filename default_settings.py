@@ -6,7 +6,9 @@ default_settings = {
     'password': '',
     'database':'base1',
     'driver':'mysql',
+    'debug' : True,
 
 }
 
 LANG = 'es'
+

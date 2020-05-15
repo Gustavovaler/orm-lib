@@ -3,6 +3,7 @@ from ..default_settings import default_settings
 from .errors import Error
 
 
+
 class Connection :
     def __init__(self,**kwargs): 
         if 'user' in kwargs:
@@ -46,12 +47,21 @@ class Connection :
 
 
     def close(self):
-        print("cerrando conexion")
+        if default_settings['debug'] == True:
+            print("cerrando conexion")
         self.cnx.close()
 
     def cursor(self):
         self.cursor = self.cnx.cursor()
         return self.cursor
+
+
+    def commit(self):
+        try:
+            self.cnx.commit()
+        except:
+            pass
+
 
 
 
